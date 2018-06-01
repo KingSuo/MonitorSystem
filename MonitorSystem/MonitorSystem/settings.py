@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'MonitorSystem.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'A20171219',
+        'NAME': 'MonitorSystem',
         'USER': 'root',
         'PASSWORD': '15895228911',
         'HOST': '127.0.0.1',
