@@ -22,7 +22,7 @@ class ServerStaticInfoModel(models.Model):
     create_time = models.DateTimeField(null=False, blank=False, default=datetime.datetime.now,
                                        verbose_name=u'添加时间', editable=False)
     is_deleted = models.BooleanField(default=False, verbose_name=u'是否被删除')
-    update_time = models.DateTimeField(default=datetime.datetime.now, auto_now=True, verbose_name=u'更新时间')
+    update_time = models.DateTimeField(default=datetime.datetime.now, verbose_name=u'更新时间')
 
     def __str__(self):
         return self.hostname
@@ -44,7 +44,7 @@ class CpuModel(models.Model):
     # date +"%Y-%m-%d %H:%M:%S"
     current_time = models.DateTimeField(verbose_name=u'系统当前时间')
     # uptime
-    running_time = models.CharField(verbose_name=u'系统已运行时间')
+    running_time = models.CharField(max_length=50, verbose_name=u'系统已运行时间')
     # uptime -s
     system_up_date = models.DateTimeField(verbose_name=u'系统创建时间')
     # uptime
