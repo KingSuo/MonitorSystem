@@ -9,7 +9,7 @@ from users.models import UserProfile
 
 
 class ServerModel(models.Model):
-    server_id = models.UUIDField(null=False, blank=False, default=uuid.uuid4, verbose_name=u'服务器ID')
+    server_id = models.UUIDField(null=False, blank=False, default=uuid.uuid4, verbose_name=u'服务器ID', editable=False)
     server_ip = models.CharField(max_length=15, null=False, blank=False, default='127.0.0.1',
                                  verbose_name=u'服务器ip地址')
     # cat /etc/hostname
@@ -46,7 +46,7 @@ class ServerModel(models.Model):
 
 
 class CpuModel(models.Model):
-    server_id = models.UUIDField(null=False, blank=False, default=uuid.uuid4, verbose_name=u'服务器ID')
+    server_id = models.UUIDField(null=False, blank=False, default=uuid.uuid4, verbose_name=u'服务器ID', editable=False)
     status = models.CharField(max_length=10, null=False, blank=False, verbose_name=u'运行状态', default='unknown',
                               choices=(('running', u'运行中'), ('stopped', u'已停止'), ('stopping', u'停止中'),
                                        ('starting', u'启动中'), ('unknown', u'未知')))
@@ -73,8 +73,8 @@ class CpuModel(models.Model):
         verbose_name_plural = verbose_name
 
 
-class MemoryModel(models.Model):   
-    server_id = models.UUIDField(null=False, blank=False, default=uuid.uuid4, verbose_name=u'服务器ID')
+class MemoryModel(models.Model):
+    server_id = models.UUIDField(null=False, blank=False, default=uuid.uuid4, verbose_name=u'服务器ID', editable=False)
     # cat /pro/meminfo (Active - MemFree) / MemTotal
     mem_utilization_ratio = models.FloatField(max_length=6, null=False, blank=False, default=0.0, verbose_name=u'内存使用率')
     update_time = models.DateTimeField(default=datetime.datetime.now, verbose_name=u'更新时间')
@@ -88,7 +88,7 @@ class MemoryModel(models.Model):
 
 
 class DiskModel(models.Model):
-    server_id = models.UUIDField(null=False, blank=False, default=uuid.uuid4, verbose_name=u'服务器ID')
+    server_id = models.UUIDField(null=False, blank=False, default=uuid.uuid4, verbose_name=u'服务器ID', editable=False)
     # df  “Filesystem”为“/dev/vda1”的“Use%”或“Mounted on”为"/"的“Use%”
     mem_utilization_ratio = models.FloatField(max_length=6, null=False, blank=False, default=0.0, verbose_name=u'内存使用率')
     # iostat -d
@@ -105,7 +105,7 @@ class DiskModel(models.Model):
 
 
 class NetworkModel(models.Model):
-    server_id = models.UUIDField(null=False, blank=False, default=uuid.uuid4, verbose_name=u'服务器ID')
+    server_id = models.UUIDField(null=False, blank=False, default=uuid.uuid4, verbose_name=u'服务器ID', editable=False)
     # sar -n DEV [seconds][times]
     public_rx_kbps = models.FloatField(max_length=6, null=False, blank=False, default=0.0, verbose_name=u'公网网络流入带宽')
     public_tx_kbps = models.FloatField(max_length=6, null=False, blank=False, default=0.0, verbose_name=u'公网网络流出带宽')
@@ -123,7 +123,7 @@ class NetworkModel(models.Model):
 
 
 class ProcessModel(models.Model):
-    server_id = models.UUIDField(null=False, blank=False, default=uuid.uuid4, verbose_name=u'服务器ID')
+    server_id = models.UUIDField(null=False, blank=False, default=uuid.uuid4, verbose_name=u'服务器ID', editable=False)
     # ps -A | wc -l
     total_processes = models.PositiveIntegerField(default=0, verbose_name=u'进程总数')
     # netstat -at | wc -l

@@ -8,9 +8,12 @@ from cluster.models import ServerModel, CpuModel, MemoryModel, DiskModel, Networ
 
 @admin.register(ServerModel)
 class ServerAdmin(admin.ModelAdmin):
-    list_display = ['server_id', 'server_ip', 'hostname', 'owner', 'detail', 'location', 'create_time', 'is_deleted', 'update_time']
-    search_fields = ['server_id', 'server_ip', 'hostname', 'owner', 'detail', 'location', 'create_time', 'is_deleted', 'update_time']
-    list_filter = ['server_id', 'server_ip', 'hostname', 'owner', 'detail', 'location', 'create_time', 'is_deleted', 'update_time']
+    list_display = ['server_id', 'server_ip', 'hostname', 'owner', 'detail', 'location',
+                    'create_time', 'is_deleted', 'update_time']
+    search_fields = ['server_id', 'server_ip', 'hostname', 'owner', 'detail', 'location',
+                     'create_time', 'is_deleted', 'update_time']
+    list_filter = ['server_id', 'server_ip', 'hostname', 'owner', 'detail', 'location',
+                   'create_time', 'is_deleted', 'update_time']
 
     actions = ['refresh_data']
 
@@ -42,9 +45,12 @@ class ServerAdmin(admin.ModelAdmin):
 
 @admin.register(CpuModel)
 class CpuAdmin(admin.ModelAdmin):
-    list_display = ['id', 'server_id', 'status', 'current_time', 'running_time', 'system_up_date', 'number_of_logged_users', 'load_average', 'cpu_utilization_ratio', 'update_time']
-    search_fields = ['id', 'server_id', 'status', 'current_time', 'running_time', 'system_up_date', 'number_of_logged_users', 'load_average', 'cpu_utilization_ratio', 'update_time']
-    list_filter = ['id', 'server_id', 'status', 'current_time', 'running_time', 'system_up_date', 'number_of_logged_users', 'load_average', 'cpu_utilization_ratio', 'update_time']
+    list_display = ['id', 'server_id', 'status', 'current_time', 'running_time', 'system_up_date',
+                    'number_of_logged_users', 'load_average', 'cpu_utilization_ratio', 'update_time']
+    search_fields = ['id', 'server_id', 'status', 'current_time', 'running_time', 'system_up_date',
+                     'number_of_logged_users', 'load_average', 'cpu_utilization_ratio', 'update_time']
+    list_filter = ['id', 'server_id', 'status', 'current_time', 'running_time', 'system_up_date',
+                   'number_of_logged_users', 'load_average', 'cpu_utilization_ratio', 'update_time']
     list_display_links = ['id', 'server_id']
 
     actions = ['refresh_data']
@@ -87,9 +93,12 @@ class DiskAdmin(admin.ModelAdmin):
 
 @admin.register(NetworkModel)
 class NetworkAdmin(admin.ModelAdmin):
-    list_display = ['id', 'server_id', 'public_rx_kbps', 'public_tx_kbps', 'private_rx_kbps', 'private_tx_kbps', 'update_time']
-    search_fields = ['id', 'server_id', 'public_rx_kbps', 'public_tx_kbps', 'private_rx_kbps', 'private_tx_kbps', 'update_time']
-    list_filter = ['id', 'server_id', 'public_rx_kbps', 'public_tx_kbps', 'private_rx_kbps', 'private_tx_kbps', 'update_time']
+    list_display = ['id', 'server_id', 'public_rx_kbps', 'public_tx_kbps', 'private_rx_kbps',
+                    'private_tx_kbps', 'update_time']
+    search_fields = ['id', 'server_id', 'public_rx_kbps', 'public_tx_kbps', 'private_rx_kbps',
+                     'private_tx_kbps', 'update_time']
+    list_filter = ['id', 'server_id', 'public_rx_kbps', 'public_tx_kbps', 'private_rx_kbps',
+                   'private_tx_kbps', 'update_time']
     list_display_links = ['id', 'server_id']
 
     actions = ['refresh_data']
